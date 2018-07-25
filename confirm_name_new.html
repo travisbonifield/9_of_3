@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://test.accumeds.co/admin_switch_patient.jsp?uid=56 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+
+
+
+    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="./confirm_name_files/framework.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/style.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/owl.theme.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/swipebox.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/animate.css" rel="stylesheet" type="text/css">
+    <link href="./confirm_name_files/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./confirm_name_files/pure-min.css" media="screen">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="styles/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="./confirm_name_files/grids-responsive-min.css">
+    <!--<![endif]-->
+    <style>
+/* Radio buttons */
+input[type=radio] {
+    -webkit-appearance: radio;
+    margin: auto;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: checkbox;
+    margin: auto;
+}
+
+input[type=text] {
+    outline: #000000 solid thin;
+}
+
+/* Specific pure tweaks for this theme */
+.pure-form select {
+    padding-top:3px;
+}
+
+.pure-form .pure-control-group span {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+/* Override the font size for all */
+body {
+    font-size: 18px;
+    line-height: 30px;
+}
+tr {
+    font-size: 18px;
+    line-height: 30px;
+}
+.container h4 {
+    font-size: 24px;
+    line-height: 36px;
+}
+.container p {
+    font-size: 18px;
+    line-height: 30px;
+}
+/* For medication guides in the table cell */
+ul {
+    text-align: left;
+}
+
+/* typed.js blinking cursor */
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+    </style>
+
+    <script type="text/javascript" src="./confirm_name_files/jquery-1.11.3.min.js.download"></script>
+    <script type="text/javascript" src="./confirm_name_files/jquery-ui.min.js.download"></script>
+    <script type="text/javascript" src="./confirm_name_files/typed.min.js.download"></script>
+    <script type="text/javascript" src="./confirm_name_files/framework.plugins.js.download"></script>
+    <script type="text/javascript" src="./confirm_name_files/custom.js.download"></script>
+    <!--[if IE 9]>
+	<script type="text/javascript" src="scripts/placeholder.js"></script>
+    <![endif]-->
+
+    <script>
+    function typethis (current_element, next_element, msg) {
+        current_element.typed({
+            strings: [
+                msg
+            ],
+            typeSpeed: 0,
+            showCursor: false,
+            callback: function() {
+                next_element.show();
+            }
+        });
+    }
+
+    // The next_element must be a table. This one shows the first two rows of the table
+    function typethis2 (current_element, next_element, msg) {
+        current_element.typed({
+            strings: [
+                msg
+            ],
+            typeSpeed: 0,
+            showCursor: false,
+            callback: function() {
+                next_element.show();
+                var rows = next_element.find("tr");
+                jQuery(rows[0]).show();
+                jQuery(rows[1]).show();
+            }
+        });
+    }
+
+    function validate_radio_form () {
+        var submitme = true;
+        jQuery(':radio').each(function() {
+            nam = jQuery(this).attr('name');
+            if (!jQuery(':radio[name="'+nam+'"]:checked').length) {
+                submitme = false;
+            }
+        });
+
+        if (!submitme) {
+            alert("Please answer all questions.");
+        }
+
+        return submitme;
+    }
+    </script>
+
+
+
+
+
+
+
+
+    <title>Review Medication</title>
+    <script>
+jQuery(function() {
+    
+
+    jQuery( "#name" ).autocomplete({
+      source: "/rxterm_json",
+      minLength: 2
+    });
+});
+    </script>
+    <style>
+/* Required to force jquery UI front elements (e.g., autocomplete menu) to appear at top */
+.ui-front {
+    z-index: 999999;
+}
+    </style>
+
+    <title>Sign up</title>
+</head>
+    <style> 
+    .btn2 {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 3px 2px #666666;
+    -moz-box-shadow: 0px 1px 1px #666666;
+    box-shadow: 0px 1px 1px #666666;
+    font-family: Arial;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 20px;
+    background: #244a66;
+    border: solid #ffffff 2px;
+    padding: 10px;
+    text-decoration: none;
+}
+ .btn2:hover {
+     background:#a1b6cc;
+     font-weight: bold;
+     font-family: Arial;
+     color: #000000;
+     text-decoration: none;
+     border: solid #ededed 2px;
+}
+  .btn {
+     -webkit-border-radius: 5;
+     -moz-border-radius: 5;
+     border-radius: 2px;
+     -webkit-box-shadow: 0px 3px 2px #666666;
+     -moz-box-shadow: 0px 1px 1px #666666;
+     box-shadow: 0px 1px 1px #666666;
+     font-family: Arial;
+     font-weight: bold;
+     color: #ffffff;
+     font-size: 20px;
+     background: #244a66;
+     float: right;
+     padding: 0px 25px 5px 25px;
+     margin: 0px 25px 0px 0px;
+     border: solid #ffffff 2px;
+     text-decoration: none;
+}
+ .btn:hover {
+     background:#a1b6cc;
+     font-weight: bold;
+     font-family: Arial;
+     color: #000000;
+     text-decoration: none;
+     border: solid #ededed 2px;
+}  
+    
+    </style>
+<body>
+
+
+<div class="container material-box">
+  
+
+            <div class="container material-box" style="text-align:center">
+            <p><u><i>Please confirm your name</i></u></p>
+            <h4>Test </h4>
+            <!-- <p>Email: kim@ringful.com | Phone: 5126570675</p> -->
+
+            <button onclick="jQuery(this).text(&#39;Please wait ...&#39;); goto_url(&#39;/dashboard.jsp?suggest_update=1&#39;);" class="btn2" style="margin-bottom: 12px; margin-right: 10px; margin-top: 10px; margin-left: 10px;">Yes, it is me</button>
+            <button onclick="jQuery(this).text(&#39;Please wait ...&#39;); goto_url(&#39;/logout&#39;);" class="btn2" style="margin-bottom:12px;">No, it is not me</button>
+        </div>
+    <a href="patient_dash.html" target="_blank">Back to Dashboard</a>
+      </div>
+<!-- We do not need these floating buttons for now -->
+<!--
+    <div class="footer-menu">
+        <a href="#" class="show-left-sidebar open-left"><i class="fa fa-navicon"></i></a>
+        <a href="#" class="show-right-sidebar open-right"><i class="fa fa-envelope-o"></i></a>
+    </div>
+-->
+
+
+</body></html>
